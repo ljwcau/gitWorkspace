@@ -7,7 +7,7 @@
 $ git config --global user.name "Luo"
 
 - hasee@DESKTOP-8HHLSJO MINGW64 ~
-$ git config --global user.email "838047310@qq.com"
+$ git config --global user.email "xxxxx@qq.com"
 ---
 ## 二、基本命令
 - cd S:进入目录
@@ -57,5 +57,34 @@ $ git config --global user.email "838047310@qq.com"
 由于远程库是空的，我们第一次推送master分支时，加上了 –u参数，Git不但会把本地的master分支内容推送的远程新的master分支，还会把本地的master分支和远程的master分支关联起来
 
     从现在起，只要本地作了提交，就可以通过如下命令：git push origin master，把本地master分支的最新修改推送到github上了，现在你就拥有了真正的分布式版本库了
+
+### 4、克隆远程仓库
+用git clone克隆将一个远程仓库克隆岛本地
+### 5、创建与合并分支
+    每次提交，Git都把它们串成一条时间线，这条时间线就是一个分支。截止到目前，只有一条时间线，在Git里，这个分支叫主分支，即master分支。HEAD严格来说不是指向提交，而是指向master，master才是指向提交的，所以，HEAD指向的就是当前分支。
+
+- git checkout -b dev 创建并切换到dev新的分支山（与git branch dev、git checkout dev两条命令作用相同）
+    - git branch查看分支，会列出所有的分支，当前分支前面会添加一个星号。
+    - git checkout xx查看xx分支
+
+- 在master分支上，使用如下命令 git merge dev 将dev分支上的内容合并到分支master上，随后可以用git branch –d dev删除dev分支。
+----
+    总结创建与合并分支命令如下：
+- 查看分支：git branch
+- 创建分支：git branch name
+- 切换分支：git checkout name
+- 创建+切换分支：git checkout –b name
+- 合并某分支到当前分支：git merge name
+- 删除分支：git branch –d name
+
+        通常合并分支时，git一般使用”Fast forward”模式，在这种模式下，删除分支后，会丢掉分支信息，现在我们来使用带参数 –no-ff来禁用”Fast forward”模式。合并dev分支，使用命令 git merge –no-ff  -m “注释” dev
+
+分支策略：首先master主分支应该是非常稳定的，也就是用来发布新版本，一般情况下不允许在上面干活，干活一般情况下在新建的dev分支上干活，干完后，比如上要发布，或者说dev分支代码稳定后可以合并到主分支master上来。
+
+    20190302 17:11
+    参考：Git使用教程,最详细，最傻瓜，最浅显，真正手把手教_慕课手记  http://www.imooc.com/article/20411
+
+
+
 
 
