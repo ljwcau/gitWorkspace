@@ -1,11 +1,9 @@
 ### Markdown插入图片的方法：https://blog.csdn.net/SlaughterDevil/article/details/79255933#插入本地图片
 ----
-
 # 学习git实践
 ## 一、初始用户名与邮箱设置：
 - hasee@DESKTOP-8HHLSJO MINGW64 ~
 $ git config --global user.name "Luo"
-
 - hasee@DESKTOP-8HHLSJO MINGW64 ~
 $ git config --global user.email "xxxxx@qq.com"
 ---
